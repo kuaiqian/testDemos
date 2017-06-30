@@ -17,7 +17,5 @@ public class NioByteBuffer {
         System.out.println(bb.position() + "::" + bb.limit() + "::" + bb.capacity());
         ByteBuffer bb1 = bb.slice();
         System.out.println(bb1.position() + "::" + bb1.limit() + "::" + bb1.capacity());
-
-
     }
 }

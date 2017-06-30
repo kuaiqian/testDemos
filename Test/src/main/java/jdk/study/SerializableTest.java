@@ -22,11 +22,9 @@ public class SerializableTest implements Serializable {
         // clone
         People peopleClone = (People) people.clone();
         System.out.println(peopleClone.getPerson().getName());
-
         ObjectOutputStream outputStream1 = new ObjectOutputStream(new FileOutputStream("serial.external.txt"));
         outputStream1.writeObject(people);
         outputStream1.flush();
-
     }
 
     public static class Person implements Serializable {
@@ -120,7 +118,6 @@ public class SerializableTest implements Serializable {
         @Override
         public void readExternal(ObjectInput in) throws IOException, ClassNotFoundException {
             System.out.println("readExternal");
-
         }
 
         @Override

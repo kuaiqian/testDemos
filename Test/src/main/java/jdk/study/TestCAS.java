@@ -4,7 +4,6 @@ import jdk.study.model.CAS;
 import jdk.study.model.DemoClass;
 
 public class TestCAS {
-
     public static void main(String[] args) throws SecurityException, NoSuchFieldException {
         DemoClass demoClass = new DemoClass(1, 2);
         DemoClass demoClass1 = new DemoClass(2, 2);

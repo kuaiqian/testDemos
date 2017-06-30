@@ -31,7 +31,7 @@ public class CAS<V> {
         this.value = value;
     }
 
-    public boolean compareAndSet(V v1,V v2) {
+    public boolean compareAndSet(V v1, V v2) {
         return unsafe.compareAndSwapObject(this, valueOffset, v1, v2);
     }
 

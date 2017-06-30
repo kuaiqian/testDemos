@@ -21,6 +21,5 @@ public class DeSerializableTest {
         Object object1 = obi1.readObject();
         System.out.println(object1);
         obi1.close();
-
     }
 }

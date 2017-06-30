@@ -35,6 +35,7 @@ public class User implements Serializable {
     private Long id;
 
     private String name;
+
     private Long age;
 
     private Date birth;
@@ -77,5 +78,4 @@ public class User implements Serializable {
     public void setBirth(Date birth) {
         this.birth = birth;
     }
-
 }

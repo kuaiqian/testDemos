@@ -23,86 +23,84 @@ import org.w3c.dom.Text;
 import org.xml.sax.SAXException;
 
 public class TestXmlDOM {
-    
-    
-    public static void main(String[] args) throws ParserConfigurationException, SAXException, IOException {  
-        read();  
-        //write();   
-    }  
-      
-    public static void read() throws ParserConfigurationException, SAXException, IOException {  
-            DocumentBuilderFactory dbf = DocumentBuilderFactory.newInstance();  
-            DocumentBuilder builder = dbf.newDocumentBuilder();  
-            InputStream in = TestXmlDOM.class.getClassLoader().getResourceAsStream("bean.xml");  
-            Document doc = builder.parse(in);  
-            // root <university>   
-            Element root = doc.getDocumentElement();  
-            System.err.println(root.toString());
-            NodeList list=root.getChildNodes();
-           for (int i = 0; i < list.getLength(); i++) {
-            Node node=list.item(i);
-            System.out.println(node.getNodeName()+" = "+node.getNodeValue());
-        } 
-    }  
-      
-    public static void write() {  
-        DocumentBuilderFactory dbf = DocumentBuilderFactory.newInstance();  
-        try {  
-            DocumentBuilder builder = dbf.newDocumentBuilder();  
-            InputStream in = TestXmlDOM.class.getClassLoader().getResourceAsStream("test.xml");  
-            Document doc = builder.parse(in);  
-            // root <university>   
-            Element root = doc.getDocumentElement();  
-            if (root == null) return;  
-            // ÐÞ¸ÄÊôÐÔ   
-            root.setAttribute("name", "tsu");  
-            NodeList collegeNodes = root.getChildNodes();  
-            if (collegeNodes != null) {  
-                for (int i = 0; i <collegeNodes.getLength() - 1; i++) {  
-                    // É¾³ý½Úµã   
-                    Node college = collegeNodes.item(i);  
-                    if (college.getNodeType() == Node.ELEMENT_NODE) {  
-                        String collegeName = college.getAttributes().getNamedItem("name").getNodeValue();  
-                        if ("c1".equals(collegeName) || "c2".equals(collegeName)) {  
-                            root.removeChild(college);  
-                        } else if ("c3".equals(collegeName)) {  
-                            Element newChild = doc.createElement("class");  
-                            newChild.setAttribute("name", "c4");  
-                            college.appendChild(newChild);  
-                        }  
-                    }  
-                }  
-            }  
-            // ÐÂÔö½Úµã   
-            Element addCollege = doc.createElement("college");  
-            addCollege.setAttribute("name", "c5");  
-            root.appendChild(addCollege);  
-            Text text = doc.createTextNode("text");  
-            addCollege.appendChild(text);  
-              
-            // ½«ÐÞ¸ÄºóµÄÎÄµµ±£´æµ½ÎÄ¼þ   
-            TransformerFactory transFactory = TransformerFactory.newInstance();  
-            Transformer transFormer = transFactory.newTransformer();  
-            DOMSource domSource = new DOMSource(doc);  
-            File file = new File("src/dom-modify.xml");  
-            if (file.exists()) {  
-                file.delete();  
-            }  
-            file.createNewFile();  
-            FileOutputStream out = new FileOutputStream(file);           
-            StreamResult xmlResult = new StreamResult(out);  
-            transFormer.transform(domSource, xmlResult);  
-            System.out.println(file.getAbsolutePath());  
-        } catch (ParserConfigurationException e) {  
-            e.printStackTrace();  
-        } catch (SAXException e) {  
-            e.printStackTrace();  
-        } catch (IOException e) {  
-            e.printStackTrace();  
-        } catch (TransformerConfigurationException e) {  
-            e.printStackTrace();  
-        } catch (TransformerException e) {  
-            e.printStackTrace();  
-        }  
-    }  
+    public static void main(String[] args) throws ParserConfigurationException, SAXException, IOException {
+        read();
+        // write();
+    }
+
+    public static void read() throws ParserConfigurationException, SAXException, IOException {
+        DocumentBuilderFactory dbf = DocumentBuilderFactory.newInstance();
+        DocumentBuilder builder = dbf.newDocumentBuilder();
+        InputStream in = TestXmlDOM.class.getClassLoader().getResourceAsStream("bean.xml");
+        Document doc = builder.parse(in);
+        // root <university>
+        Element root = doc.getDocumentElement();
+        System.err.println(root.toString());
+        NodeList list = root.getChildNodes();
+        for (int i = 0; i < list.getLength(); i++) {
+            Node node = list.item(i);
+            System.out.println(node.getNodeName() + " = " + node.getNodeValue());
+        }
+    }
+
+    public static void write() {
+        DocumentBuilderFactory dbf = DocumentBuilderFactory.newInstance();
+        try {
+            DocumentBuilder builder = dbf.newDocumentBuilder();
+            InputStream in = TestXmlDOM.class.getClassLoader().getResourceAsStream("test.xml");
+            Document doc = builder.parse(in);
+            // root <university>
+            Element root = doc.getDocumentElement();
+            if(root == null)
+                return;
+            // ï¿½Þ¸ï¿½ï¿½ï¿½ï¿½ï¿½
+            root.setAttribute("name", "tsu");
+            NodeList collegeNodes = root.getChildNodes();
+            if(collegeNodes != null) {
+                for (int i = 0; i < collegeNodes.getLength() - 1; i++) {
+                    // É¾ï¿½ï¿½ï¿½Úµï¿½
+                    Node college = collegeNodes.item(i);
+                    if(college.getNodeType() == Node.ELEMENT_NODE) {
+                        String collegeName = college.getAttributes().getNamedItem("name").getNodeValue();
+                        if("c1".equals(collegeName) || "c2".equals(collegeName)) {
+                            root.removeChild(college);
+                        }else if("c3".equals(collegeName)) {
+                            Element newChild = doc.createElement("class");
+                            newChild.setAttribute("name", "c4");
+                            college.appendChild(newChild);
+                        }
+                    }
+                }
+            }
+            // ï¿½ï¿½ï¿½ï¿½ï¿½Úµï¿½
+            Element addCollege = doc.createElement("college");
+            addCollege.setAttribute("name", "c5");
+            root.appendChild(addCollege);
+            Text text = doc.createTextNode("text");
+            addCollege.appendChild(text);
+            // ï¿½ï¿½ï¿½Þ¸Äºï¿½ï¿½ï¿½Äµï¿½ï¿½ï¿½ï¿½æµ½ï¿½Ä¼ï¿½
+            TransformerFactory transFactory = TransformerFactory.newInstance();
+            Transformer transFormer = transFactory.newTransformer();
+            DOMSource domSource = new DOMSource(doc);
+            File file = new File("src/dom-modify.xml");
+            if(file.exists()) {
+                file.delete();
+            }
+            file.createNewFile();
+            FileOutputStream out = new FileOutputStream(file);
+            StreamResult xmlResult = new StreamResult(out);
+            transFormer.transform(domSource, xmlResult);
+            System.out.println(file.getAbsolutePath());
+        }catch (ParserConfigurationException e) {
+            e.printStackTrace();
+        }catch (SAXException e) {
+            e.printStackTrace();
+        }catch (IOException e) {
+            e.printStackTrace();
+        }catch (TransformerConfigurationException e) {
+            e.printStackTrace();
+        }catch (TransformerException e) {
+            e.printStackTrace();
+        }
+    }
 }

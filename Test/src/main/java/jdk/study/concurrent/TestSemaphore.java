@@ -10,14 +10,12 @@ public class TestSemaphore {
 
     final static int threadsNum = 5;
 
-
     public static void main(String[] args) {
         ExecutorService excute = Executors.newCachedThreadPool();
-
         for (int i = 0; i < threadsNum; i++) {
-                // SEMAPHORE.tryAcquire(10L, TimeUnit.MILLISECONDS);
-                // SEMAPHORE.acquire();
-                SEMAPHORE.acquireUninterruptibly();
+            // SEMAPHORE.tryAcquire(10L, TimeUnit.MILLISECONDS);
+            // SEMAPHORE.acquire();
+            SEMAPHORE.acquireUninterruptibly();
             new Thread(new Runnable(){
                 @Override
                 public void run() {

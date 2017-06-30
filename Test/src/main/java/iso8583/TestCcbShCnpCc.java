@@ -1,4 +1,5 @@
 package iso8583;
+
 import org.apache.commons.codec.DecoderException;
 import org.jpos.iso.ISOUtil;
 
@@ -17,9 +18,8 @@ public class TestCcbShCnpCc {
         // byte[] mak=BCDASCII.fromASCIIToBCD(key, 0, key.length(), false);
         byte[] mab = ISOUtil.hex2byte(data);
         byte[] mak = ISOUtil.hex2byte(key);
-        System.out.println(mab.length+"mak="+mak.length);
+        System.out.println(mab.length + "mak=" + mak.length);
         byte[] result = ECB.encrypt(mak, mab);// 3634453131373936
-
         System.out.println(BCDASCII.fromBCDToASCIIString(result, 0, 2 * result.length, false));
         // String strHeader = "60010000000";
         // byte[] headerByte = BCDASCII.fromASCIIToBCD(strHeader, 0, strHeader.length(), false);

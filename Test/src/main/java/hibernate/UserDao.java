@@ -58,7 +58,7 @@ public class UserDao extends HibernateGenicDao {
             @Override
             public List<BankSignInfo> doInHibernate(Session session) throws HibernateException, SQLException {
                 String sql = "select distinct a.name from User a where a.pan=:pan";
-                Query query=session.createQuery(sql);
+                Query query = session.createQuery(sql);
                 query.setCacheable(true);
                 query.setParameter("pan", pan);
                 query.list();

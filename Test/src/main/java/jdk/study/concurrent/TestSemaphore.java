@@ -22,6 +22,7 @@ public class TestSemaphore {
                     System.out.println(Thread.currentThread().getName() + ":excute");
                     try {
                         TimeUnit.SECONDS.sleep(5L);
+                        // SEMAPHORE.acquire();
                     }catch (InterruptedException e) {
                         e.printStackTrace();
                     }

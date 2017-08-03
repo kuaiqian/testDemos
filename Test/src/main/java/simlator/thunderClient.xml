@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context" xmlns:aop="http://www.springframework.org/schema/aop"
+	xmlns:tx="http://www.springframework.org/schema/tx" xmlns:mvc="http://www.springframework.org/schema/mvc"
+	xmlns:thunder="http://www.99bill.com/schema/thunder"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans 
+           http://www.springframework.org/schema/beans/spring-beans-2.5.xsd 
+           http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-2.5.xsd 
+           http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-2.5.xsd 
+           http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-2.5.xsd
+           http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc-2.5.xsd
+           http://www.99bill.com/schema/thunder http://www.99bill.com/schema/thunder/thunder-2.0.xsd">
+	<!--schema引入thunder-2.0.xsd -->
+	<!--application标签与registry标签应用中仅需配置一次,appName和group根据你的应用填写 -->
+	<thunder:application id="application" appName="${project.name}" group="CPS" />
+	<thunder:registry id="registry" />
+
+	<!--使用方式二:不配置method标签，默认所有方法为同步调用，不设置timeout时，默认同步调用超时间为30000毫秒） -->
+	<thunder:reference id="thunder.securityModuleService"  interface="s3.crypto.SecurityModuleService" timeout="5000"></thunder:reference>
+	<thunder:reference id="thunder.hostSecurityModuleService"  interface="s3.crypto.hsm.HostSecurityModuleService" timeout="5000"></thunder:reference>
+</beans>

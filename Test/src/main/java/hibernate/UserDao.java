@@ -1,6 +1,7 @@
 package hibernate;
 
 import java.sql.SQLException;
+import java.util.Date;
 import java.util.List;
 
 import org.hibernate.HibernateException;
@@ -9,8 +10,6 @@ import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 import org.springframework.orm.hibernate3.HibernateCallback;
-
-import pcids.banksign.model.BankSignInfo;
 
 public class UserDao extends HibernateGenicDao {
     public User load(final User user) {
@@ -56,7 +55,7 @@ public class UserDao extends HibernateGenicDao {
     public List<User> queryByPan(final String pan) {
         return (List<User>) getHibernateTemplate().execute(new HibernateCallback(){
             @Override
-            public List<BankSignInfo> doInHibernate(Session session) throws HibernateException, SQLException {
+            public List<User> doInHibernate(Session session) throws HibernateException, SQLException {
                 String sql = "select distinct a.name from User a where a.pan=:pan";
                 Query query = session.createQuery(sql);
                 query.setCacheable(true);
@@ -66,5 +65,13 @@ public class UserDao extends HibernateGenicDao {
                 return query.list();
             }
         });
+    }
+
+    public List<User> queryByTime(final Date txnStartTime, final Date txnEndTime) {
+        Object[] values=new Object[2];
+        values[0]=txnStartTime;
+        values[1]=txnEndTime;
+        return getHibernateTemplate().find("select a from User a where a.birth>=? and a.birth<=?",
+                values);
     }
 }

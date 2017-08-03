@@ -5,7 +5,7 @@ import java.io.UnsupportedEncodingException;
 import security.PANUtils;
 import steel.encode.BCDASCII;
 
-public class Test {
+public class TestProductEn {
     public static void main(String[] args) throws UnsupportedEncodingException {
         // 身份证号或者卡号
         // 解密
@@ -38,7 +38,7 @@ public class Test {
          * data.length(),false); System.out.println(a[0]+","+a[1]+","+a[2]+","+a[3]+","+new String(b, "GBK")); } catch
          * (Exception e) { //e.printStackTrace(); } }
          */
-        String[] decData = { "CBDAEEA9E869B45A" };
+        String[] decData = { "053EF2CA6BF92251714F04DDCB2DE1184E067C738C55D607ED8A911CE8D62E8D1311E9BBEFF3C357" };
         for (String arg : decData) {
             String data = PANUtils.decryptPAN(arg);
             byte[] b = BCDASCII.fromASCIIToBCD(data.getBytes(), 0, data.length(), false);

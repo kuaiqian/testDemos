@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context" xmlns:aop="http://www.springframework.org/schema/aop"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+		http://www.springframework.org/schema/beans/spring-beans-2.5.xsd
+		http://www.springframework.org/schema/aop
+		http://www.springframework.org/schema/aop/spring-aop-2.5.xsd
+		http://www.springframework.org/schema/context
+		http://www.springframework.org/schema/context/spring-context-2.5.xsd">
+	<!-- 00012000 上海银联cp -->
+	<import resource="classpath:simlator/thunderClient.xml"/>
+	<!-- 青岛银联直连 00016007 和上海银联公用mock-->
+	<bean class="simlator.bank.cup.shzlcp.NettyServer">
+		<property name="port" value="8188"/>
+		<property name="serverInitializer" ref="cup.qdzlcp.serverInitializer"/>
+	</bean>
+	
+	<bean id="cup.qdzlcp.serverInitializer" class="simlator.bank.cup.shzlcp.ServerInitializer">
+		<property name="reqTpdu" value="6005280000603100310001"/>
+		<property name="resTpdu" value="6000000528603100310001"/>
+		<property name="configResponseCode" ref="cup.shzlcp.ConfigResponseCode"/>
+		<property name="securityService" ref="cup.shzlcp.securityService"/>
+		<property name="ssl" value="true"/>
+	</bean>
+	
+	<bean id="cup.shzlcp.serverInitializer" class="simlator.bank.cup.shzlcp.ServerInitializer">
+		<property name="reqTpdu" value="6005280000603100310001"/>
+		<property name="resTpdu" value="6000000528603100310001"/>
+		<property name="configResponseCode" ref="cup.shzlcp.ConfigResponseCode"/>
+		<property name="securityService" ref="cup.shzlcp.securityService"/>
+	</bean>
+	
+	<bean id="cup.shzlcp.securityService" class="simlator.bank.cup.shzlcp.SecurityService">
+		<property name="rpcSwitchService" ref="simlator.rpc.rpcSwitchService"/>
+	</bean>
+	
+	
+		<bean id="simlator.rpc.rpcSwitchService" class="simlator.rpc.RpcSwitchService"/>
+	
+	<!-- 此返回码没有生效，需要修改 -->
+	<bean id="cup.shzlcp.ConfigResponseCode" class="simlator.utils.ConfigResponseCode">
+		<property name="txnTypesResultCode">
+			<map>
+				<entry key="0800">
+					<bean class="simlator.utils.TxnConfig">
+						<property name="txnName">
+							<value>签到</value>
+						</property>
+						<property name="resultCode">
+							<value>00</value>
+						</property>					
+					</bean>
+				</entry>
+				<entry key="0200">
+					<bean class="simlator.utils.TxnConfig">
+						<property name="txnName">
+							<value>消费</value>
+						</property>
+						<property name="resultCode">
+							<value>00</value>
+						</property>
+						<property name="resultSubCode">
+							<value>00000</value>
+						</property>						
+					</bean>
+				</entry>
+				<entry key="200000">
+					<bean class="simlator.utils.TxnConfig">
+						<property name="txnName">
+							<value>消费撤销</value>
+						</property>
+						<property name="resultCode">
+							<value>00</value>
+						</property>
+					</bean>
+				</entry>
+				<entry key="0400">
+					<bean class="simlator.utils.TxnConfig">
+						<property name="txnName">
+							<value>消费冲正</value>
+						</property>
+						<property name="resultCode">
+							<value>00</value>
+						</property>						
+					</bean>
+				</entry>
+				<entry key="MAC">
+					<bean class="simlator.utils.TxnConfig">
+						<property name="txnName">
+							<value>MACkey</value>
+						</property>
+						<property name="resultCode">
+							<value>28681565950357D2</value>
+						</property>						
+					</bean>
+				</entry>
+			</map>
+		</property>
+	</bean>
+</beans>

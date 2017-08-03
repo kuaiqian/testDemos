@@ -1,5 +1,6 @@
 package hibernate;
 
+import java.util.Date;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -72,6 +73,10 @@ public class UserService {
 
     public List<User> queryByPan(String pan) {
         return userDao.queryByPan(pan);
+    }
+
+    public List<User> queryByTime(Date txnStartTime, Date txnEndTime) {
+        return userDao.queryByTime(txnStartTime, txnEndTime);
     }
 
     @Autowired

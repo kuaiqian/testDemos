@@ -24,6 +24,7 @@ import org.apache.commons.net.telnet.TelnetClient;
 import io.netty.bootstrap.Bootstrap;
 import io.netty.channel.Channel;
 import io.netty.channel.ChannelFuture;
+import io.netty.channel.ChannelFutureListener;
 import io.netty.channel.EventLoopGroup;
 import io.netty.channel.nio.NioEventLoopGroup;
 import io.netty.channel.socket.nio.NioSocketChannel;
@@ -63,7 +64,16 @@ public final class SecureChatClient {
                 }
 
                 // Sends the received line to the server.
-                lastWriteFuture = ch.writeAndFlush(line + "\r\n");
+                lastWriteFuture = ch.writeAndFlush(line + "\r\n")
+                        .addListener(ChannelFutureListener.FIRE_EXCEPTION_ON_FAILURE)
+                        .addListener(new ChannelFutureListener(){
+                            @Override
+                            public void operationComplete(ChannelFuture paramF) throws Exception {
+                                if(paramF.isSuccess()) {
+                                    System.out.println("complete success");
+                                }
+                            }
+                        });
 
                 // If user typed the 'bye' command, wait until the server closes
                 // the connection.

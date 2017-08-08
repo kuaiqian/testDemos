@@ -13,8 +13,7 @@ public class TDesTest {
     static final String masterKey = "A533FC93D2D2B1271E0627C62474902E";
 
     public static void main(String[] args) throws Exception {
-        String[] filePaths = new String[] {
-                "d:\\chen.cheng\\桌面\\11" };
+        String[] filePaths = new String[] { "d:\\chen.cheng\\桌面\\11" };
         for (String filePath : filePaths) {
             File file = new File(filePath);
             if(file.isDirectory()) {

@@ -13,7 +13,6 @@
 	<dependencies>
 		<dependency org="ant" name="ant-optional" rev="1.5.1" conf="zip->default" />
 		<dependency org="antlr" name="antlr" rev="2.7.6" conf="zip->default" />
-        <dependency org="chinapay" name="netpayclient" rev="2.0" conf="zip->default"/>
 		<dependency org="com.99bill" name="bgw-common" rev="2.0.0.0.2" conf="zip->default"/>
 		<dependency org="bank" name="bank-spdb-merchant" rev="1.0" conf="zip->default" />
 		<dependency org="bank" name="cmb" rev="1.0.0" conf="zip->default" />

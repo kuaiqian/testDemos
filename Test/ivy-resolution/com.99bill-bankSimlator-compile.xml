@@ -7,11 +7,11 @@
 		revision="working@NJ23H6B92-PC"
 		conf="compile"
 		confs="default, compile, zip, test"
-		date="20170726194347"/>
+		date="20170807174614"/>
 	<dependencies>
 		<module organisation="org.apache" name="commons-codec">
 			<revision name="1.4" status="release" pubdate="20121121152504" resolver="bill99_repository.public" artresolver="bill99_repository.public" downloaded="false" searched="false" default="true" conf="default" position="1">
-				<metadata-artifact status="no" details="" size="402" time="0" location="D:\Local_Repository\Local_Repository\ivy-cache\org.apache\commons-codec\ivy-1.4.xml" searched="false" original-local-location="D:\Local_Repository\Local_Repository\ivy-cache\org.apache\commons-codec\ivy-1.4.xml.original" origin-is-local="false" origin-location="http://192.168.52.211/org.apache/commons-codec/ivys/ivy-1.4.xml"/>
+				<metadata-artifact status="no" details="" size="402" time="0" location="D:\Local_Repository\Local_Repository\ivy-cache\org.apache\commons-codec\ivy-1.4.xml" searched="false" origin-is-local="false" origin-location="http://192.168.52.211/org.apache/commons-codec/ivys/ivy-1.4.xml"/>
 				<caller organisation="com.99bill" name="bankSimlator" conf="compile" rev="1.4" rev-constraint-default="1.4" rev-constraint-dynamic="1.4" callerrev="working@NJ23H6B92-PC"/>
 				<artifacts>
 					<artifact name="commons-codec" type="jar" ext="jar" status="no" details="" size="58160" time="0" location="D:\Local_Repository\Local_Repository\ivy-cache\org.apache\commons-codec\jars\commons-codec-1.4.jar">
@@ -22,7 +22,7 @@
 		</module>
 		<module organisation="org.springframework" name="spring-test">
 			<revision name="3.0.2.RELEASE" status="release" pubdate="20170718170628" resolver="io.spring.repo.maven.release" artresolver="io.spring.repo.maven.release" homepage="" downloaded="false" searched="false" default="false" conf="default, compile, runtime, master" position="0">
-				<metadata-artifact status="no" details="" size="8641" time="0" location="D:\Local_Repository\Local_Repository\ivy-cache\org.springframework\spring-test\ivy-3.0.2.RELEASE.xml" searched="false" original-local-location="D:\Local_Repository\Local_Repository\ivy-cache\org.springframework\spring-test\ivy-3.0.2.RELEASE.xml.original" origin-is-local="false" origin-location="http://repo.spring.io/release/org/springframework/spring-test/3.0.2.RELEASE/spring-test-3.0.2.RELEASE.pom"/>
+				<metadata-artifact status="no" details="" size="8641" time="0" location="D:\Local_Repository\Local_Repository\ivy-cache\org.springframework\spring-test\ivy-3.0.2.RELEASE.xml" searched="false" origin-is-local="false" origin-location="http://repo.spring.io/release/org/springframework/spring-test/3.0.2.RELEASE/spring-test-3.0.2.RELEASE.pom"/>
 				<caller organisation="com.99bill" name="bankSimlator" conf="compile" rev="3.0.2.RELEASE" rev-constraint-default="3.0.2.RELEASE" rev-constraint-dynamic="3.0.2.RELEASE" callerrev="working@NJ23H6B92-PC"/>
 				<artifacts>
 					<artifact name="spring-test" type="jar" ext="jar" status="no" details="" size="204732" time="0" location="D:\Local_Repository\Local_Repository\ivy-cache\org.springframework\spring-test\jars\spring-test-3.0.2.RELEASE.jar">

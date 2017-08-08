@@ -53,6 +53,8 @@ public class SecureChatClientInitializer extends ChannelInitializer<SocketChanne
         pipeline.addLast(new DelimiterBasedFrameDecoder(8192, Delimiters.lineDelimiter()));
         pipeline.addLast(new StringDecoder());
         pipeline.addLast(new StringEncoder());
+        pipeline.addLast(new StringEncoderSelf2());
+        pipeline.addLast(new StringEncoderSelf());
 
         // and then business logic.
         pipeline.addLast(new SecureChatClientHandler());

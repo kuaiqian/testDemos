@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ivy-module version="1.0">
-	<info organisation="com.99bill" module="bankSimlator" revision="working@NJ23H6B92-PC" status="integration" publication="20170807174612"/>
+	<info organisation="com.99bill" module="bankSimlator" revision="working@NJ23H6B92-PC" status="integration" publication="20170809134312"/>
 	<configurations>
 		<conf name="default"/>
 		<conf name="compile"/>
@@ -11,6 +11,8 @@
 		<artifact ext="war"/>
 	</publications>
 	<dependencies>
+	<dependency org="org.apache" name="httpclient" rev="4.3.6" conf="zip->default"/>
+        <dependency org="org.apache" name="httpcore" rev="4.3.3" conf="zip->default"/>
 		<dependency org="ant" name="ant-optional" rev="1.5.1" conf="zip->default"/>
 		<dependency org="antlr" name="antlr" rev="2.7.6" conf="zip->default"/>
 		<dependency org="com.99bill" name="bgw-common" rev="2.0.0.0.2" conf="zip->default"/>

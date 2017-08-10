@@ -10,6 +10,10 @@
 			includeLocation="true">
 			<AppenderRef ref="Console" />
 		</AsyncLogger>
+        <AsyncLogger name="org.apache.http" level="info" additivity="false"
+            includeLocation="true">
+            <AppenderRef ref="Console" />
+        </AsyncLogger>
 		<AsyncRoot level="info" includeLocation="true">
 			<AppenderRef ref="Console" />
 		</AsyncRoot>

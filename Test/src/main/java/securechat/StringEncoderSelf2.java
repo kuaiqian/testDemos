@@ -9,12 +9,6 @@ import io.netty.channel.ChannelHandlerContext;
 import io.netty.handler.codec.MessageToMessageEncoder;
 
 public class StringEncoderSelf2 extends MessageToMessageEncoder<CharSequence> {
-
-    // @Override
-    // public void exceptionCaught(ChannelHandlerContext ctx, Throwable cause) throws Exception {
-    // System.out.println("self2: " + cause);
-    // }
-
     @Override
     protected void encode(ChannelHandlerContext paramChannelHandlerContext, CharSequence paramI, List<Object> paramList)
             throws Exception {

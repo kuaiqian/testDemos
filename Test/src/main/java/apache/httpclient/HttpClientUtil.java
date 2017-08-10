@@ -18,7 +18,7 @@ public class HttpClientUtil {
     public static CloseableHttpClient createHttpClient() throws Exception {
         RequestConfig requestConfig = RequestConfig.custom().setSocketTimeout(5000).setConnectTimeout(5000).build();
         CloseableHttpClient httpClient = HttpClients.custom().setDefaultRequestConfig(requestConfig)
-                .setSSLSocketFactory(createSSLSocketFactory()).setMaxConnPerRoute(5).build();
+                .setSSLSocketFactory(createSSLSocketFactory()).setMaxConnPerRoute(1).setMaxConnTotal(1).build();
         return httpClient;
     }
 

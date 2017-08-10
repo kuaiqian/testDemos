@@ -14,11 +14,11 @@ public class TestClient {
     private static final Logger logger = LogManager.getLogger(TestClient.class);
 
     public static void main(String[] args) throws Exception {
-        ExecutorService executorService = Executors.newFixedThreadPool(5);
+        ExecutorService executorService = Executors.newFixedThreadPool(100);
         long current = System.currentTimeMillis();
-        CloseableHttpClient httpclient = HttpClientUtil.createHttpClient();
-        Task task = new Task(httpclient);
-        for (int i = 0; i < 20; i++) {
+        for (int i = 0; i < 1000; i++) {
+            CloseableHttpClient httpclient = HttpClientUtil.createHttpClient();
+            Task task = new Task(httpclient);
             executorService.execute(task);
         }
         System.out.println("costTime=" + (System.currentTimeMillis() - current));

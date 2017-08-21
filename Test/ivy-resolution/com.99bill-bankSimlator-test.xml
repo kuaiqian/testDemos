@@ -7,7 +7,7 @@
 		revision="working@NJ23H6B92-PC"
 		conf="test"
 		confs="default, compile, zip, test"
-		date="20170809134314"/>
+		date="20170821111646"/>
 	<dependencies>
 	</dependencies>
 </ivy-report>

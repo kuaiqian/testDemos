@@ -16,8 +16,10 @@ public class TestJDKString {
     public static void main(String[] args) throws Exception {
         System.out.println(String.format("%-20s", "123333"));
         System.out.println(String.format("%6s", "1"));
-        System.out.println(String.format("%016d", 1));
+        System.out.println(String.format("%016d", 11));
+        System.out.println(String.format("%016o", 11));
         System.out.println(String.format("%06d", 1));
+        System.out.println(String.format("%0$6d", 1));
         System.out.println(String.format("%-3s", ObjectUtils.toString(null)));
         int a = 5;
         System.out.println(a--);
@@ -36,6 +38,7 @@ public class TestJDKString {
         System.out.println(string.getBytes().length);
         System.out.println(key.getBytes().length);
         System.out.println(des3(string, key));
+        System.out.println(-1 << 29);
     }
 
     static String des3(String msg, String key) throws Exception {

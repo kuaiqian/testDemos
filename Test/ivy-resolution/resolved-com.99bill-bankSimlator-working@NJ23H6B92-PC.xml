@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ivy-module version="1.0">
-	<info organisation="com.99bill" module="bankSimlator" revision="working@NJ23H6B92-PC" status="integration" publication="20170809134312"/>
+	<info organisation="com.99bill" module="bankSimlator" revision="working@NJ23H6B92-PC" status="integration" publication="20170821111644"/>
 	<configurations>
 		<conf name="default"/>
 		<conf name="compile"/>
@@ -206,7 +206,6 @@
 		<dependency org="org.hibernate" name="hibernate-memcached" rev="1.2.2" conf="zip->default"/>
 		<dependency org="org.hsqldb" name="hsqldb" rev="1.8.0.7" conf="zip->default"/>
 		<dependency org="org.jaxen" name="jaxen" rev="1.1_beta_9" conf="zip->default"/>
-		<dependency org="org.jboss" name="netty" rev="3.2.7.Final" conf="zip->default"/>
 		<dependency org="org.jdom" name="jdom" rev="1.0" conf="zip->default"/>
 		<dependency org="org.jmock" name="jmock" rev="1.0.1" conf="zip->default"/>
 		<dependency org="org.jpos" name="jpos" rev="1.5.0" conf="zip->default"/>
@@ -246,5 +245,8 @@
 		<dependency org="CMBC" name="SADK-CMBCNew" rev="3.1.5.0" conf="zip->default"/>
 		<dependency org="CMBC" name="cryptokit.jni" rev="1.0" conf="zip->default"/>
 		<dependency org="CMBC" name="logback-cfca-jdk1.6" rev="3.1.0.0" conf="zip->default"/>
+        
+		<dependency org="com.squareup.okhttp" name="okhttp" rev="3.3.1" conf="zip->default"/>
+		<dependency org="com.squareup.okio" name="okio" rev="1.8.0" conf="zip->default"/>
 	</dependencies>
 </ivy-module>

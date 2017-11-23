@@ -39,8 +39,7 @@ public class TestClient {
         long current = System.currentTimeMillis();
         CloseableHttpClient httpclient = HttpClientUtil.createHttpClient();
         PostTask task = new PostTask(httpclient);
-        for (int i = 0; i < 100; i++) {
-            TimeUnit.SECONDS.sleep(1);
+        for (int i = 0; i < 1; i++) {
             executorService.execute(task);
         }
         System.out.println("costTime=" + (System.currentTimeMillis() - current));
@@ -86,7 +85,7 @@ public class TestClient {
             CloseableHttpResponse response = null;
             try {
                 // https://127.0.0.1:8081/ https://httpbin.org/
-                HttpPost post = new HttpPost("https://192.168.47.11:8081/");
+                HttpPost post = new HttpPost("https://127.0.0.1:8081/");
                 post.setHeader("Content_Type", "text/plain; charset=utf-8");
                 post.setHeader("OriIssrId", "1112222");
                 StringEntity se = new StringEntity("123456", "utf-8");

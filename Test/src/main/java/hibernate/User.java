@@ -1,6 +1,5 @@
 package hibernate;
 
-import java.io.Serializable;
 import java.util.Date;
 
 import javax.persistence.Column;
@@ -18,18 +17,18 @@ import org.hibernate.annotations.Proxy;
  * 快捷签约信息
  * <p>
  * 用以保存用户银行卡与银行之间的快捷签约信�?
- *
+ * 
  * @author weicheng.wu
  * @version 1.0
  * @since 2013/9/9
  */
 @Entity
 @org.hibernate.annotations.Entity(dynamicUpdate = true, dynamicInsert = true)
-@Proxy(lazy = false)
+@Proxy(lazy = true)
 @Table(name = "t_test_user")
 @Cache(usage = CacheConcurrencyStrategy.NONSTRICT_READ_WRITE)
 // @SequenceGenerator(name = "idBankSignInfoGen", sequenceName = "ID_BANK_SIGN_INFO", allocationSize = 1)
-public class User implements Serializable {
+public class User {
     private static final long serialVersionUID = 1L;
 
     private Long id;

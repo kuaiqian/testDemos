@@ -18,13 +18,12 @@ public class UserService {
         User user = new User();
         user.setId(Long.valueOf(12));
         User user2 = userDao.load(user);
-        System.out.println(user2.getName());
         return user2;
     }
 
     public User get() {
         User user = new User();
-        user.setId(Long.valueOf(1111));
+        user.setId(Long.valueOf(12));
         return userDao.get(user);
     }
 

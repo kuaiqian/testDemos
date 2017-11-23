@@ -1,29 +1,42 @@
 package junit;
 
-import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.util.concurrent.TimeUnit;
 
 import org.junit.Test;
 
-import junit.framework.TestCase;
-
-public class TestJunit extends TestCase {
+public class TestJunit {
     private static final SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
 
-    @Test
-    public void test() throws InterruptedException {
-        for (int i = 0; i < 10; i++) {
-            new Thread(new A()).start();
-        }
+    public static void main(String[] args) {
+        new Thread(new A()).start();
+        new Thread(new B()).start();
     }
-
     static class A implements Runnable {
         @Override
         public void run() {
             try {
-                System.out.println(dateFormat.parse("2016-01-01 23:00:00"));
-            }catch (ParseException e) {
-                e.printStackTrace();
+                TimeUnit.SECONDS.sleep(1);
+            }catch (InterruptedException e1) {
+                e1.printStackTrace();
+            }
+            synchronized (dateFormat) {
+                try {
+                    dateFormat.wait(2000);
+                    System.out.println("wait");
+                }catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
+            }
+        }
+    }
+
+    static class B implements Runnable {
+        @Override
+        public void run() {
+            synchronized (dateFormat) {
+                dateFormat.notifyAll();
+                System.out.println("notify");
             }
         }
     }

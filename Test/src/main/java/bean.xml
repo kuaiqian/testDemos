@@ -7,8 +7,16 @@
 		http://www.springframework.org/schema/aop/spring-aop-2.5.xsd
 		http://www.springframework.org/schema/context
 		http://www.springframework.org/schema/context/spring-context-2.5.xsd">
-    <bean id="teacher" class="spring.beans.Teacher" >
+<!--     <bean id="teacher" class="spring.beans.Teacher" >
     <constructor-arg  value="name">
     </constructor-arg>
+    </bean> -->
+    
+    <bean id="myFactoryBean" class="spring.DateFactoryBean"></bean>
+    
+    <bean id="myNow" class="spring.Now">
+        <property name="now" ref="myFactoryBean"/>
     </bean>
+    
+    
 </beans>

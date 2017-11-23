@@ -16,13 +16,6 @@
 		<dependency org="ant" name="ant-optional" rev="1.5.1" conf="zip->default" />
 		<dependency org="antlr" name="antlr" rev="2.7.6" conf="zip->default" />
 		<dependency org="com.99bill" name="bgw-common" rev="2.0.0.0.2" conf="zip->default"/>
-		<dependency org="bank" name="bank-spdb-merchant" rev="1.0" conf="zip->default" />
-		<dependency org="bank" name="cmb" rev="1.0.0" conf="zip->default" />
-		<dependency org="cfgatewayadapter" name="cfgatewayadapter" rev="1.0.0" conf="zip->default" />
-		<dependency org="bank" name="bank-icbc" rev="2.0" conf="zip->default"/>
-        <dependency org="bank" name="bank-icbc-InfosecCrypto" rev="2.0" conf="zip->default"/>
-        <dependency org="bank" name="bank-icbc-tools" rev="2.0" conf="zip->default"/>
-        <dependency org="bank" name="bank-icbc-jetty" rev="1.0" conf="zip->default"/>
 		<dependency org="citicbank" name="bcmail-jdk14-145.jar" rev="1.1" conf="zip->default" />
 		<dependency org="citicbank" name="bcprov-jdk14-145.jar" rev="1.1" conf="zip->default" />
 		<dependency org="citicbank" name="CNCBCryptoPkg.jar" rev="1.1" conf="zip->default" />
@@ -97,9 +90,6 @@
 		<dependency org="com.thoughtworks" name="xstream" rev="1.3" conf="zip->default" />
 		<dependency org="com.tibco" name="tibjms" rev="6.0.1" conf="zip->default" />
 		<dependency org="de.ruedigermoeller" name="fst" rev="1.63" conf="zip->default" />
-		<dependency org="edu.emory" name="backport-util-concurrent" rev="2.1" conf="zip->default" />
-		<dependency org="edu.emory" name="concurrent" rev="1.3.4" conf="zip->default" />
-		<dependency org="flex-messaging" name="flex-messaging-opt" rev="3.0" conf="zip->default" />
 		<dependency org="io.netty" name="netty-all" rev="4.0.34.Final" conf="zip->default" />
 		<dependency org="j2ee" name="jaxrpc" rev="1.1" conf="zip->default" />
 		<dependency org="j2ee" name="jsr173_api" rev="1.0" conf="zip->default" />
@@ -116,8 +106,6 @@
 		<dependency org="net.sf" name="json-lib" rev="2.1-jdk15" conf="zip->default" />
 		<dependency org="net.sf" name="swarmcache" rev="1.0RC2" conf="zip->default" />
 		<dependency org="net.spy" name="memcached" rev="2.4.2" conf="zip->default" />
-		<dependency org="org.acegisecurity" name="acegi-security" rev="1.0.4" conf="zip->default" />
-		<dependency org="org.acegisecurity" name="acegi-security-tiger" rev="1.0.4" conf="zip->default" />
 		<dependency org="org.adobe" name="flex-messaging-common" rev="3.0" conf="zip->default" />
 		<dependency org="org.adobe" name="flex-messaging-core" rev="3.0" conf="zip->default" />
 		<dependency org="org.adobe" name="flex-messaging-proxy" rev="3.0" conf="zip->default" />
@@ -177,21 +165,7 @@
 		<dependency org="org.apache.logging.log4j" name="log4j-web" rev="2.3" conf="zip->default" />
 		<dependency org="org.aspectj" name="aspectjrt" rev="1.5.4" conf="zip->default" />
 		<dependency org="org.aspectj" name="aspectjweaver" rev="1.5.4" conf="zip->default" />
-		<dependency org="org.clapper" name="ocutil" rev="2.4.2" conf="zip->default" />
 		<dependency org="org.codehaus" name="jackson-all" rev="1.9.2" conf="zip->default" />
-		<dependency org="org.codehaus" name="wstx-asl" rev="3.2.0" conf="zip->default" />
-		<dependency org="org.codehaus" name="xfire-all" rev="1.2.6" conf="zip->default" />
-		<dependency org="org.codehaus" name="xfire-jsr181-api" rev="1.0-M1" conf="zip->default" />
-		<dependency org="org.codehaus" name="xfire-ws-security" rev="1.2.6" conf="zip->default" />
-		<dependency org="org.codehaus.xfire" name="xfire-aegis" rev="1.2.6" conf="zip->default" />
-		<dependency org="org.codehaus.xfire" name="xfire-annotations" rev="1.2.6" conf="zip->default" />
-		<dependency org="org.codehaus.xfire" name="xfire-core" rev="1.2.6" conf="zip->default" />
-		<dependency org="org.codehaus.xfire" name="xfire-generator" rev="1.2.6" conf="zip->default" />
-		<dependency org="org.codehaus.xfire" name="xfire-java5" rev="1.2.6" conf="zip->default" />
-		<dependency org="org.codehaus.xfire" name="xfire-jaxb2" rev="1.2.6" conf="zip->default" />
-		<dependency org="org.codehaus.xfire" name="xfire-jaxws" rev="1.2.6" conf="zip->default" />
-		<dependency org="org.codehaus.xfire" name="xfire-spring" rev="1.2.6" conf="zip->default" />
-		<dependency org="org.codehaus.xfire" name="xfire-xmlbeans" rev="1.2.6" conf="zip->default" />
 		<dependency org="org.displaytag" name="displaytag" rev="1.1" conf="zip->default" />
 		<dependency org="org.dom4j" name="dom4j" rev="1.6.1" conf="zip->default" />
 		<dependency org="org.drools" name="drools-compiler" rev="3.0.4" conf="zip->default" />
@@ -199,7 +173,6 @@
 		<dependency org="org.drools" name="drools-decisiontables" rev="3.0.4" conf="zip->default" />
 		<dependency org="org.drools" name="drools-jsr94" rev="3.0.4" conf="zip->default" />
 		<dependency org="org.easymock" name="easymock" rev="2.3" conf="zip->default" />
-		<dependency org="org.eclipse" name="core" rev="3.2.0.666" conf="zip->default" />
 		<dependency org="org.hibernate" name="hibernate" rev="3.2.6.ga" conf="zip->default" />
 		<dependency org="org.hibernate" name="hibernate-annotations" rev="3.3.0.ga" conf="zip->default" />
 		<dependency org="org.hibernate" name="hibernate-commons-annotations" rev="3.3.0.ga" conf="zip->default" />
@@ -238,15 +211,11 @@
 		<dependency org="unknown" name="jgroups-all" rev="2.2.8" conf="zip->default" />
 		<dependency org="xerces" name="xerces" rev="2.6.2" conf="zip->default" />
 		<dependency org="xerces" name="xercesImpl" rev="2.5.0" conf="zip->default" />
-		<dependency org="com.szfs" name="tws-adapter" rev="2.0" conf="zip->default"/>
-		<dependency org="com.cfca" name="SADK" rev="3.2.1.3" conf="zip->default"/>
 		<dependency org="org.apache" name="commons-codec" rev="1.4" conf="compile->default"/>
-		<dependency org="CMBC" name="CFCADecryptKit-CMBC" rev="3.2.1.0" conf="zip->default"/>
-		<dependency org="CMBC" name="SADK-CMBCNew" rev="3.1.5.0" conf="zip->default"/>
-		<dependency org="CMBC" name="cryptokit.jni" rev="1.0" conf="zip->default"/>
-		<dependency org="CMBC" name="logback-cfca-jdk1.6" rev="3.1.0.0" conf="zip->default"/>
         
 		<dependency org="com.squareup.okhttp" name="okhttp" rev="3.3.1" conf="zip->default"/>
 		<dependency org="com.squareup.okio" name="okio" rev="1.8.0" conf="zip->default"/>
+        <dependency org="c3p0" name="c3p0" rev="0.9.1.2" conf="zip->default"/>
+        <dependency org="mysql" name="mysql-connector-java" rev="5.1.9" conf="zip->default"/>
 	</dependencies>
 </ivy-module>

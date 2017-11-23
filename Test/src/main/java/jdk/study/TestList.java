@@ -10,7 +10,6 @@ import java.util.ListIterator;
 
 public class TestList {
     public static void main(String[] args) {
-        "123".substring(0, 4);
         List list = new ArrayList(Collections.nCopies(4, new Date()));
         list.add("111");
         list.add("222");
@@ -24,7 +23,7 @@ public class TestList {
         }
         System.out.println(list);
         System.out.println(list1);
-        LinkedList ll = new LinkedList();
+        List ll = new LinkedList();
         ll.add("aaa");
         ll.add("bbb");
         ll.add("ccc");

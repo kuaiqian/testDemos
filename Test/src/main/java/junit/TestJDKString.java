@@ -1,5 +1,7 @@
 package junit;
 
+import java.util.Arrays;
+
 import javax.crypto.Cipher;
 import javax.crypto.SecretKey;
 import javax.crypto.spec.SecretKeySpec;
@@ -39,6 +41,20 @@ public class TestJDKString {
         System.out.println(key.getBytes().length);
         System.out.println(des3(string, key));
         System.out.println(-1 << 29);
+        System.out.println(Arrays.toString("asd|\n|as".split("\n|\\|")));
+        Integer a1 = 1;
+        Integer a2 = 1;
+        Integer b1 = 200;
+        Integer b2 = 200;
+        Integer c1 = Integer.valueOf(1);
+        // Integer c2 = new Integer(1); 官方不推荐这种建对象的方法喔
+        Integer c2 = Integer.valueOf(1);
+        Integer d1 = Integer.valueOf(200);
+        Integer d2 = Integer.valueOf(200);
+        System.out.println("a1==a2?" + (a1 == a2));
+        System.out.println("b1==b2?" + (b1 == b2));
+        System.out.println("c1==c2?" + (c1 == c2));
+        System.out.println("d1==d2?" + (d1 == d2));
     }
 
     static String des3(String msg, String key) throws Exception {

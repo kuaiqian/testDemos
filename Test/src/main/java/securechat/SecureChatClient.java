@@ -11,8 +11,6 @@ package securechat;
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.security.cert.X509Certificate;
-import java.util.concurrent.TimeUnit;
-
 import javax.net.ssl.SSLContext;
 import javax.net.ssl.TrustManager;
 import javax.net.ssl.X509TrustManager;
@@ -60,8 +58,6 @@ public final class SecureChatClient {
             b.group(group).channel(NioSocketChannel.class).handler(new SecureChatClientInitializer(sslCtx));
             // Start the connection attempt.
             Channel ch = b.connect(HOST, PORT).sync().channel();
-            TimeUnit.SECONDS.sleep(3);
-            b.connect(HOST, PORT).sync().channel();
             // Read commands from the stdin.
             ChannelFuture lastWriteFuture = null;
             BufferedReader in = new BufferedReader(new InputStreamReader(System.in));
@@ -72,7 +68,7 @@ public final class SecureChatClient {
                 }
                 // Sends the received line to the server.
                 lastWriteFuture = ch.writeAndFlush(line + "\r\n")
-                        // .addListener(ChannelFutureListener.FIRE_EXCEPTION_ON_FAILURE)
+                // .addListener(ChannelFutureListener.FIRE_EXCEPTION_ON_FAILURE)
                         .addListener(new ChannelFutureListener(){
                             @Override
                             public void operationComplete(ChannelFuture paramF) throws Exception {
@@ -84,7 +80,8 @@ public final class SecureChatClient {
                 // If user typed the 'bye' command, wait until the server closes
                 // the connection.
                 if("bye".equals(line.toLowerCase())) {
-                    ch.closeFuture().sync();
+                    // ch.closeFuture().sync();
+                    lastWriteFuture.channel().close();
                     break;
                 }
             }

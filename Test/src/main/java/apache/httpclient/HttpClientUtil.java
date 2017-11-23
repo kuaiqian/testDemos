@@ -3,6 +3,7 @@ package apache.httpclient;
 import java.security.cert.CertificateException;
 import java.security.cert.X509Certificate;
 
+import javax.annotation.PostConstruct;
 import javax.net.ssl.SSLContext;
 import javax.net.ssl.TrustManager;
 import javax.net.ssl.X509TrustManager;
@@ -16,16 +17,24 @@ import org.apache.http.impl.client.CloseableHttpClient;
 import org.apache.http.impl.client.HttpClients;
 
 public class HttpClientUtil {
+    private static CloseableHttpClient httpClient;
+
+    private String protocal;
+
+    private int maxConnPerRoute;
+
+    @PostConstruct
     public static CloseableHttpClient createHttpClient() throws Exception {
         RequestConfig requestConfig = RequestConfig.custom().setSocketTimeout(5000).setConnectTimeout(5000).build();
-        CloseableHttpClient httpClient = HttpClients.custom().setDefaultRequestConfig(requestConfig)
+        httpClient = HttpClients.custom().setDefaultRequestConfig(requestConfig)
                 .setConnectionReuseStrategy(NoConnectionReuseStrategy.INSTANCE)
-                .setSSLSocketFactory(createSSLSocketFactory()).setMaxConnPerRoute(1).setMaxConnTotal(15).build();
+                .setSSLSocketFactory(createSSLSocketFactory()).setMaxConnPerRoute(2).setMaxConnTotal(15).build();
+        System.out.println("create client");
         return httpClient;
     }
 
     private static LayeredConnectionSocketFactory createSSLSocketFactory() throws Exception {
-        SSLContext sslContext = SSLContexts.custom().useProtocol("TLSV1.2").build();
+        SSLContext sslContext = SSLContexts.custom().build();
         sslContext.init(null, new TrustManager[] { ignoreCertificationTrustManger }, null);
         return new SSLConnectionSocketFactory(sslContext, SSLConnectionSocketFactory.ALLOW_ALL_HOSTNAME_VERIFIER);
     }

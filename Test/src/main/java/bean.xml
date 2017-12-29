@@ -7,16 +7,28 @@
 		http://www.springframework.org/schema/aop/spring-aop-2.5.xsd
 		http://www.springframework.org/schema/context
 		http://www.springframework.org/schema/context/spring-context-2.5.xsd">
-<!--     <bean id="teacher" class="spring.beans.Teacher" >
-    <constructor-arg  value="name">
-    </constructor-arg>
-    </bean> -->
+    <!-- <bean id="teacher" class="spring.beans.Teacher" > <constructor-arg value="name"> </constructor-arg> </bean> -->
+
+<!--     <bean id="myFactoryBean" class="spring.DateFactoryBean"></bean> -->
+
+    <!-- <bean id="myNow" class="spring.Now"> -->
+    <!-- <property name="now" ref="myFactoryBean"/> -->
+    <!-- </bean> -->
+<!--     <context:annotation-config></context:annotation-config> -->
+    <bean class="spring.SpringInt" init-method="init1"></bean>
+    <bean class="spring.SpringBeanPostProcessor"></bean>
     
-    <bean id="myFactoryBean" class="spring.DateFactoryBean"></bean>
-    
-    <bean id="myNow" class="spring.Now">
-        <property name="now" ref="myFactoryBean"/>
+    <bean name="man" class="spring.aop.Man"></bean>
+    <!--RMI  server-->
+    <bean id="rmiService" class="org.springframework.remoting.rmi.RmiServiceExporter">
+       <property name="serviceName" value="manEat"></property>
+       <property name="registryPort" value="8099"></property>
+       <property name="service" ref="man"></property>
+       <property name="serviceInterface" value="spring.aop.Human"></property>
     </bean>
-    
-    
+    <!-- RMI client -->
+    <bean id="rmiClient" class="org.springframework.remoting.rmi.RmiProxyFactoryBean" scope="prototype">
+    	<property name="serviceInterface" value="spring.aop.Human"></property>
+    	<property name="serviceUrl" value="rmi://127.0.0.1:8099/manEat"></property>
+    </bean>
 </beans>

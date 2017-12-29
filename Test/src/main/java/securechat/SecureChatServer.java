@@ -31,6 +31,7 @@ import io.netty.handler.ssl.util.SelfSignedCertificate;
 public final class SecureChatServer {
 
     static final int PORT = Integer.parseInt(System.getProperty("port", "8992"));
+    static final int PORT1 = Integer.parseInt(System.getProperty("port", "8993"));
 
     public static void main(String[] args) throws Exception {
         SelfSignedCertificate ssc = new SelfSignedCertificate();
@@ -47,6 +48,7 @@ public final class SecureChatServer {
              .childHandler(new SecureChatServerInitializer(sslCtx));
 
             b.bind(PORT).sync().channel().closeFuture().sync();
+//            b.bind(PORT1).sync().channel().closeFuture().sync();
         } finally {
             bossGroup.shutdownGracefully();
             workerGroup.shutdownGracefully();

@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:context="http://www.springframework.org/schema/context" xmlns:aop="http://www.springframework.org/schema/aop"
+    xmlns:mdp="http://www.99bill.com/schema/mdp"
+    xsi:schemaLocation="http://www.springframework.org/schema/beans
+		http://www.springframework.org/schema/beans/spring-beans-2.5.xsd
+		http://www.springframework.org/schema/aop
+		http://www.springframework.org/schema/aop/spring-aop-2.5.xsd
+		http://www.springframework.org/schema/context
+		http://www.springframework.org/schema/context/spring-context-2.5.xsd
+        http://www.99bill.com/schema/mdp
+        http://www.99bill.com/schema/mdp/bill99-mdp-1.0.xsd">
+    <context:annotation-config/>
+    <bean id="connectionFactory" class="com.bill99.mdp.connection.MdpConnectionFactory">
+        <property name="properties" value="classpath:jms.properties"/>
+        <property name="prefix" value="notify"/>
+        <property name="sessionCacheSize" value="10"/>
+        <property name="targetConnectionFactory" ref="commonJmsConnectionFactory"/>
+
+    </bean>
+    
+       <bean id="commonJmsConnectionFactory" class="org.springframework.jms.connection.CachingConnectionFactory">
+        <property name="targetConnectionFactory" ref="common.jmsConnectionFactory"/>
+        <property name="sessionCacheSize" value="20"/>
+        <property name="cacheProducers" value="false"/>
+    </bean>
+    
+       <bean id="common.jmsConnectionFactory" class="org.springframework.jndi.JndiObjectFactoryBean">
+        <property name="jndiTemplate" ref="common.jndiTemplate"/>
+        <property name="jndiName" value="${common.jndi.name}"/>
+    </bean>
+</beans>

@@ -30,8 +30,8 @@ public class TestMain {
         ObjectNode jsonData = (ObjectNode)mapper.readTree(payInfoString);
         jsonData.put("timeStamp", System.currentTimeMillis());
         System.out.println(mapper.writeValueAsString(jsonData));
-        
-        int ops=2;
-        System.out.println(ops&=~2);
+//        
+//        int ops=2;
+//        System.out.println(ops&=~2);
     }
 }

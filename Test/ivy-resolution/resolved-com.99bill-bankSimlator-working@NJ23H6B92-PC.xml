@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ivy-module version="1.0">
-	<info organisation="com.99bill" module="bankSimlator" revision="working@NJ23H6B92-PC" status="integration" publication="20171109195330"/>
+	<info organisation="com.99bill" module="bankSimlator" revision="working@NJ23H6B92-PC" status="integration" publication="20171212173916"/>
 	<configurations>
 		<conf name="default"/>
 		<conf name="compile"/>

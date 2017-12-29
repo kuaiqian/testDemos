@@ -1,14 +1,18 @@
 package junit;
 
 import java.util.Arrays;
+import java.util.Set;
 
 import javax.crypto.Cipher;
 import javax.crypto.SecretKey;
 import javax.crypto.spec.SecretKeySpec;
 
 import org.apache.commons.lang.ObjectUtils;
+import org.apache.commons.lang.StringUtils;
 
 import steel.encode.BCDASCII;
+
+import com.google.common.collect.Sets;
 
 public class TestJDKString {
     /**
@@ -55,6 +59,9 @@ public class TestJDKString {
         System.out.println("b1==b2?" + (b1 == b2));
         System.out.println("c1==c2?" + (c1 == c2));
         System.out.println("d1==d2?" + (d1 == d2));
+        String fieldValue = ",";
+        Set<String> setFields = Sets.newHashSet(StringUtils.split(fieldValue, ","));
+        System.out.println(setFields.contains("ccb") + "::" + setFields);
     }
 
     static String des3(String msg, String key) throws Exception {

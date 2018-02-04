@@ -19,7 +19,7 @@ public class TestSingleThreadPool {
         // TimeUnit.SECONDS.sleep(11L);
         // System.out.println("main thread end.." + Thread.currentThread().getName());
         // executorService.execute(r1);
-        ThreadPoolExecutor poolExecutor = new ThreadPoolExecutor(1, 1, 5L, TimeUnit.SECONDS,
+        ThreadPoolExecutor poolExecutor = new ThreadPoolExecutor(1, 2, 5L, TimeUnit.SECONDS,
                 new SynchronousQueue<Runnable>(), new RejectedExecutionHandler(){
                     @Override
                     public void rejectedExecution(Runnable paramRunnable, ThreadPoolExecutor paramThreadPoolExecutor) {
@@ -31,8 +31,8 @@ public class TestSingleThreadPool {
         Runnable r2 = new MyTask(null);
         Runnable r3 = new MyTask(null);
         poolExecutor.execute(r1);
-        // poolExecutor.execute(r2);
-        // poolExecutor.execute(r3);
+         poolExecutor.execute(r2);
+         poolExecutor.execute(r3);
         TimeUnit.SECONDS.sleep(10L);
         System.out.println("main thread end.." + Thread.currentThread().getName());
         // poolExecutor.execute(r2);

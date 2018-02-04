@@ -18,6 +18,7 @@ public class UserService {
         User user = new User();
         user.setId(Long.valueOf(12));
         User user2 = userDao.load(user);
+        System.out.println(user2.getName());
         return user2;
     }
 

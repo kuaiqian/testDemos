@@ -24,7 +24,7 @@ import org.hibernate.annotations.Proxy;
  */
 @Entity
 @org.hibernate.annotations.Entity(dynamicUpdate = true, dynamicInsert = true)
-@Proxy(lazy = true)
+@Proxy(lazy = false)
 @Table(name = "t_test_user")
 @Cache(usage = CacheConcurrencyStrategy.NONSTRICT_READ_WRITE)
 // @SequenceGenerator(name = "idBankSignInfoGen", sequenceName = "ID_BANK_SIGN_INFO", allocationSize = 1)

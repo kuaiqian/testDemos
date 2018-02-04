@@ -8,5 +8,6 @@ public class MD5Test {
      */
     public static void main(String[] args) {
         System.out.println(MD5Util.getMD5Hex("123123123123123"));
+        System.out.println(String.format("%04X", 8));
     }
 }

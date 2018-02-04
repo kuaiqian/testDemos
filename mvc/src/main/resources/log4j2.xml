@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Configuration status="WARN" monitorInterval="30">
+	<Appenders>
+		<RollingRandomAccessFile name="logfile"
+			fileName="/opt/log/mvc/mvc.log" filePattern="/opt/log/mvc/mvc-%d{yyyy-MM-dd}.log.%i">
+			<PatternLayout>
+				<Pattern>%d{yyyy-MM-dd HH:mm:ss,SSS} %-5p [%t] (%l)- %m%n</Pattern>
+			</PatternLayout>
+			<Policies>
+				<TimeBasedTriggeringPolicy interval="1"
+					modulate="true" />
+				<SizeBasedTriggeringPolicy size="50MB" />
+			</Policies>
+			<DefaultRolloverStrategy max="100" />
+		</RollingRandomAccessFile>
+		</Appenders>
+	<Loggers>
+		<AsyncRoot level="info" includeLocation="true">
+			<AppenderRef ref="logfile" />
+		</AsyncRoot>
+	</Loggers>
+</Configuration>

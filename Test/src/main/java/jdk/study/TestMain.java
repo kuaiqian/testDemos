@@ -1,6 +1,7 @@
 package jdk.study;
 
 import java.io.IOException;
+import java.nio.charset.Charset;
 
 import org.codehaus.jackson.JsonProcessingException;
 import org.codehaus.jackson.map.ObjectMapper;
@@ -14,7 +15,7 @@ public class TestMain {
         String aString = "41534F41303132303030303031313530303030";
         byte[] a = BCDASCII.fromASCIIToBCD(aString, 0, aString.length(), false);
         System.out.println(new String(a));
-        System.out.println(1 << 0);
+        System.out.println(-1 << 29);
         System.out.println(1 << 2);
         System.out.println(1 << 3);
         System.out.println(1 << 4);
@@ -33,5 +34,12 @@ public class TestMain {
 //        
 //        int ops=2;
 //        System.out.println(ops&=~2);
+      //方法一：中文操作系统中打印GBK   
+        System.out.println(System.getProperty("file.encoding"));   
+           
+        //方法二：中文操作系统中打印GBK   
+        System.out.println(Charset.defaultCharset());
+        
+        System.out.println(Integer.toHexString(24925));
     }
 }

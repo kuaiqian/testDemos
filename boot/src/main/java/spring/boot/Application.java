@@ -20,7 +20,7 @@ public class Application implements EmbeddedServletContainerCustomizer {
         return "Hello World!";
         // throw new HTTPException(500);
     }
-
+    
     @RequestMapping(value = "/status", method = RequestMethod.POST)
     public ResponseEntity<String> handle() throws URISyntaxException {
         URI location = new URI("https://127.0.0.1:8081/");

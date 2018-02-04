@@ -25,26 +25,23 @@ public class TestMain {
         // default :
         // System.out.println("err");
         // }
-        //1.6不支持泛型协变，支持数组泛型协变
-        List<Animal> cats = new ArrayList<>();
+        // 1.6不支持泛型协变，支持数组泛型协变
+        List<Animal> cats = new ArrayList<Animal>();
         check(cats);
-        Animal[] catsArr=new Animal[2];
+        Animal[] catsArr = new Animal[2];
         check(catsArr);
-//        Runnable r = () ->{System.out.println("lambdas");};
-//        r.run();
-        
-//        long a=LocalTime.now().toNanoOfDay()/1000;
-//        long b =System.currentTimeMillis();
-//        System.out.println("a="+a+",b="+b);
-        
+        // Runnable r = () ->{System.out.println("lambdas");};
+        // r.run();
+        // long a=LocalTime.now().toNanoOfDay()/1000;
+        // long b =System.currentTimeMillis();
+        // System.out.println("a="+a+",b="+b);
     }
 
     public static <T> void check(List<T> cats) {
         System.out.println("List<? extends Animal>");
     }
-    
+
     public static <T> void check(T[] cats) {
         System.out.println("Animal[]");
-
     }
 }

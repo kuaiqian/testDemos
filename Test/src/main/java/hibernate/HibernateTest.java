@@ -26,9 +26,8 @@ public class HibernateTest {
         // for (User user : list) {
         // System.out.println(user.getName());
         // }
+    	User user1 = userService.get();
+    	System.out.println(user1);
         User user = userService.load();
-        System.out.println(user);
-        User user1 = userService.get();
-        System.out.println(user1);
     }
 }

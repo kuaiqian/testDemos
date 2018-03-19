@@ -2,7 +2,6 @@ package jdk.study.collections;
 
 import java.util.ArrayList;
 import java.util.Collections;
-import java.util.Date;
 import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.List;
@@ -10,7 +9,7 @@ import java.util.ListIterator;
 
 public class TestList {
     public static void main(String[] args) {
-        List list = new ArrayList(Collections.nCopies(4, new Date()));
+        List list = new ArrayList(Collections.nCopies(4, "123"));
         list.add("111");
         list.add("222");
         list.add("333");

@@ -14,7 +14,7 @@
             includeLocation="true">
             <AppenderRef ref="Console" />
         </AsyncLogger>
-		<AsyncRoot level="info" includeLocation="true">
+		<AsyncRoot level="debug" includeLocation="true">
 			<AppenderRef ref="Console" />
 		</AsyncRoot>
 	</Loggers>

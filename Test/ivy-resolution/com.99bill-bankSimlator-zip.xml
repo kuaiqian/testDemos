@@ -7,7 +7,7 @@
 		revision="working@NJ23H6B92-PC"
 		conf="zip"
 		confs="default, compile, zip, test"
-		date="20171228103208"/>
+		date="20180208152512"/>
 	<dependencies>
 		<module organisation="mysql" name="mysql-connector-java">
 			<revision name="5.1.9" status="release" pubdate="20170418185130" resolver="bill99_repository.public" artresolver="bill99_repository.public" downloaded="false" searched="false" default="true" conf="default" position="201">

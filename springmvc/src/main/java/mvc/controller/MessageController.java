@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
 import service.UserService;
@@ -20,19 +21,25 @@ public class MessageController {
 	@Autowired
 	private UserService userService;
 	@RequestMapping(value = "/list/{userId}")
-	public ModelAndView getMessages(@PathVariable(value = "userId") Integer userId) throws Exception {
+	public @ResponseBody Message getMessages(@PathVariable(value = "userId") Integer userId) throws Exception {
 		List<Message> list=userService.getMessages(userId);
-		ModelAndView modelAndView = new ModelAndView();
-		modelAndView.addObject("messages", list);
-		modelAndView.addObject("userId", userId);
-		modelAndView.setViewName("messages");
-		return modelAndView;
+		return list.get(0);
 	}
-
-	@RequestMapping(value = "/delete/{userId}/{messageId}")
-	public ModelAndView deleteMessage(@PathVariable(value = "userId") Integer userId,
-			@PathVariable(value = "messageId") Integer messageId) throws Exception {
-		userService.deleteMessage(userId, messageId);
-		return getMessages(userId);
-	}
+	
+//	@RequestMapping(value = "/list/{userId}")
+//	public ModelAndView getMessages(@PathVariable(value = "userId") Integer userId) throws Exception {
+//		List<Message> list=userService.getMessages(userId);
+//		ModelAndView modelAndView = new ModelAndView();
+//		modelAndView.addObject("messages", list);
+//		modelAndView.addObject("userId", userId);
+//		modelAndView.setViewName("messages");
+//		return modelAndView;
+//	}
+	
+//	@RequestMapping(value = "/delete/{userId}/{messageId}")
+//	public ModelAndView deleteMessage(@PathVariable(value = "userId") Integer userId,
+//			@PathVariable(value = "messageId") Integer messageId) throws Exception {
+//		userService.deleteMessage(userId, messageId);
+//		return getMessages(userId);
+//	}
 }

@@ -1,47 +1,38 @@
 package spring;
 
-import javax.annotation.PostConstruct;
-
-import org.springframework.beans.BeansException;
-import org.springframework.beans.factory.BeanFactory;
-import org.springframework.beans.factory.BeanFactoryAware;
 import org.springframework.beans.factory.BeanNameAware;
 import org.springframework.beans.factory.InitializingBean;
-import org.springframework.context.ApplicationContext;
-import org.springframework.context.ApplicationContextAware;
 
-public class SpringInt implements InitializingBean, ApplicationContextAware, BeanNameAware, BeanFactoryAware {
+import spring.aop.Man;
+
+public class SpringInt implements BeanNameAware,InitializingBean{
+	private Man man;
     private SpringInt() {
         super();
         System.out.println("construct");
     }
 
-    @PostConstruct
-    public void init() {
-        System.out.println("@PostConstruct");
-    }
+	public Man getMan() {
+		return man;
+	}
 
-    public void init1() {
-        System.out.println("init1");
-    }
+	public void setMan(Man man) {
+		this.man = man;
+	}
 
-    @Override
-    public void setBeanFactory(BeanFactory paramBeanFactory) throws BeansException {
-        System.out.println("setBeanFactory ");
-    }
+	@Override
+	public void afterPropertiesSet() throws Exception {
+		System.out.println("InitializingBean");
 
-    @Override
-    public void setBeanName(String paramString) {
-        System.out.println("setBeanName ");
-    }
+	}
 
-    @Override
-    public void setApplicationContext(ApplicationContext paramApplicationContext) throws BeansException {
-        System.out.println("setApplicationContext ");
-    }
-
-    @Override
-    public void afterPropertiesSet() throws Exception {
-        System.out.println("afterPropertiesSet ");
-    }
+	@Override
+	public void setBeanName(String arg0) {
+		System.out.println("setBeanName");
+	}
+    
+	public void init() {
+		System.out.println("custom init");
+	}
+    
 }

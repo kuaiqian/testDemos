@@ -2,10 +2,12 @@ package service.model;
 
 import java.util.Date;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 public class Message {
-	private Integer messageId;
-	private String content;
-	private Date createDate;
+	@JsonProperty(index=1,value="id",required=true) private Integer messageId;
+	@JsonProperty(index=2,value="content") private String content;
+	@JsonProperty(index=3,value="date") private Date createDate;
 	
 	public Message(Integer messageId, String content, Date createDate) {
 		super();

@@ -1,9 +1,9 @@
 /.metadata/*
 /.recommenders/*
-
 boot/.metadata/*
 */.settings/*
 */ivy-resolution/*
-
-Test/ivy-resolution/com.99bill-bankSimlator-zip.xml
-Test/ivy-resolution/com.99bill-bankSimlator-zip.xml
+Servers/*
+*.xml
+/.metadata/
+/.recommenders/
